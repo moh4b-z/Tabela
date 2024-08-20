@@ -7,30 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>2ºA</h1>
-    <table id="interactive-table"></table>
-    <div id="info"></div>
-
-    <!-- Modal para inserção de dados -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <form id="data-form">
-                <label for="name">Nome:</label><br>
-                <input type="text" id="name" required><br><br>
-                <label for="phone">Telefone:</label><br>
-                <input type="text" id="phone" required><br><br>
-                <label for="payment-status">Estado de Pagamento:</label><br>
-                <input type="text" id="payment-status"><br><br>
-                <button type="submit">Confirmar</button>
-            </form>
+    <main>
+        <h1>2ºA</h1>
+        <table id="interactive-table"></table>
+        <div id="info"></div>
+    
+        <!-- Modal para inserção de dados -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="data-form">
+                    <label for="name">Nome:</label><br>
+                    <input type="text" id="name" required><br><br>
+                    <label for="phone">Telefone:</label><br>
+                    <input type="text" id="phone" required><br><br>
+                    <label for="payment-status">Estado de Pagamento:</label><br>
+                    <input type="text" id="payment-status"><br><br>
+                    <button type="submit" class="Confirmar">Confirmar</button>
+                </form>
+            </div>
         </div>
-    </div>
-
-    <input type="file" id="file-input" style="display:none;" />
-    <button id="analyze-btn" class="botao">Analisar Arquivo</button>
-    <button id="create-base-btn" class="botao">Criar Arquivo Base</button>
-    <button id="download-btn" class="botao">Baixar Arquivo</button>
+    
+        <input type="file" id="file-input" style="display:none;" />
+        <button id="analyze-btn" class="botao">Analisar Arquivo</button>
+        <button id="create-base-btn" class="botao">Criar Arquivo Base</button>
+        <button id="download-btn" class="botao">Baixar Arquivo</button>
+    
+    </main>
 
     <script src="script.js"></script>
 </body>
