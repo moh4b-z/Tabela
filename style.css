@@ -11,8 +11,11 @@ body {
     align-items: center;
     padding: 2vw;
     background-color: #b9b9b9;
+    max-width: 100vw;
+    height: auto;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,16 +24,18 @@ main{
     background-color: #d8d8d8;
     border-radius: 50px;
     width: 98vw;
+    overflow: hidden;
 }
 
 table {
     border-collapse: collapse;
     margin: 2%;
+    width: 100%;
 }
 
 td {
-    width: 4vw;
-    height: 4vw;
+    width: 2vw;
+    height: 2vw;
     text-align: center;
     border: 1px solid #000000;
     cursor: pointer;
@@ -58,7 +63,6 @@ td {
     width: 300px;
     border-radius: 10px;
     border: 2px solid #fff;
-    
 }
 
 .close {
@@ -79,7 +83,6 @@ td {
     margin-top: 20px;
 }
 
-
 .tooltip {
     position: absolute;
     background-color: #333;
@@ -90,18 +93,14 @@ td {
     display: none; /* Initially hidden */
     z-index: 10;
 }
-#data-form{
+
+#data-form {
     flex-direction: column;
     align-items: center;
 }
 
-
-
-
-
-
-.botao{
-    width: 100px;
+.botao {
+    width: 150px;
     height: 50px;
     margin: 10px;
     border-radius: 10px;
@@ -109,13 +108,11 @@ td {
     border: none;
 }
 
-.botao:hover{
+.botao:hover {
     background-color: #b9b9b9;
 }
 
-
-
-.Confirmar{
+.Confirmar {
     border: none;
     border-radius: 10px;
     background-color: #b9b9b9;
@@ -123,7 +120,7 @@ td {
     padding: 5px;
 }
 
-.Confirmar:hover{
+.Confirmar:hover {
     background-color: #a7a7a7;
 }
 
@@ -134,4 +131,12 @@ input {
     margin: 5px;
     padding: 4px;
     padding-left: 7px;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 600px) {
+    td {
+        width: 10vw;
+        height: 10vw;
+    }
 }

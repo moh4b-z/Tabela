@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const analyzeBtn = document.getElementById('analyze-btn');
     const createBaseBtn = document.getElementById('create-base-btn');
     const downloadBtn = document.getElementById('download-btn');
+    const copyBtn = document.getElementById('copy-btn');
     const fileInput = document.getElementById('file-input');
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip');
@@ -16,6 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let filledCellsCount = 0;
     let pendingCellsCount = 0;
     let storedData = {};
+
+    // Evento para copiar números disponíveis
+    copyBtn.addEventListener('click', () => {
+        const availableNumbers = [];
+        for (let i = 1; i <= (window.innerWidth <= 600 ? 400 : 400); i++) {
+            if (!storedData[i]) {
+                availableNumbers.push(i);
+            }
+        }
+
+        const numbersText = availableNumbers.join(', ');
+        navigator.clipboard.writeText(numbersText).then(() => {
+            alert('Números disponíveis copiados para a área de transferência.');
+        }).catch(err => {
+            console.error('Erro ao copiar para a área de transferência:', err);
+        });
+    });
 
     // Adicionar evento ao botão "Analisar Arquivo"
     analyzeBtn.addEventListener('click', () => {
@@ -49,13 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateTable() {
         table.innerHTML = ''; // Limpa a tabela existente
 
-        for (let i = 0; i < 20; i++) {
+        const numCols = window.innerWidth <= 600 ? 10 : 20;
+        const numRows = window.innerWidth <= 600 ? 40 : 20;
+
+        for (let i = 0; i < numRows; i++) {
             let row = table.insertRow();
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < numCols; j++) {
                 let cell = row.insertCell();
-                let cellNumber = i * 20 + j + 1;
+                let cellNumber = i * numCols + j + 1;
                 cell.textContent = cellNumber;
-                
+
                 const data = storedData[cellNumber];
                 if (data) {
                     if (data.name && data.phone && data.paymentStatus) {
@@ -155,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Função para atualizar a cor da célula na tabela 20x20
+// Função para atualizar a cor da célula na tabela
 function updateTableCellColor(cellNumber, data) {
     const cell = Array.from(document.getElementsByTagName('td')).find(td => td.textContent == cellNumber);
     if (data.name && data.phone && data.paymentStatus) {
